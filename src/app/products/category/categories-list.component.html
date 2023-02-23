@@ -1,0 +1,5 @@
+<div>
+  <span *ngFor="let category of categories">
+    <a mat-button (click)="getProductsByCategoryServer(category._id)">{{category.categoryName}}</a>
+  </span>
+</div>

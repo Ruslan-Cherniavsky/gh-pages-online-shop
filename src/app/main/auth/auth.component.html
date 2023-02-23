@@ -1,0 +1,20 @@
+<mat-card>
+  <button class="shoppingBtn" mat-stroked-button color="primary" *ngIf="!userIsAuthenticated" disabled>Start
+    Shopping</button>
+  <button (click)="startShopping()" class="shoppingBtn" mat-raised-button color="accent"
+    *ngIf="userIsAuthenticated">Start
+    Shopping</button>
+  <div *ngIf="!userIsAuthenticated">
+    <div *ngIf="switched === false">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="switched === true">
+      <app-signup></app-signup>
+    </div>
+  </div>
+  <div *ngIf="userIsAuthenticated">
+    <h1 style="text-align: center;">welcome {{userName}}</h1>
+    <div class="logedIn">
+    </div>
+  </div>
+</mat-card>

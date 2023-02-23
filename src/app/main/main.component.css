@@ -1,0 +1,22 @@
+.main {
+  display: flexbox;
+}
+
+.login {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
+
+.welcome {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
+
+.statistics {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
+.auth {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
