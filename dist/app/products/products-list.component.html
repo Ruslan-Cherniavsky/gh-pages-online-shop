@@ -1,0 +1,38 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer [mode]="mode.value">
+
+    <app-cart-list *ngIf="userRole === 'user'"></app-cart-list>
+    <app-update-product *ngIf="userRole === 'admin' && !addStatus"></app-update-product>
+    <app-add-product *ngIf="userRole === 'admin' && addStatus"></app-add-product>
+
+    <a *ngIf="userRole === 'admin' && !addStatus" class="signupBtn" mat-button (click)="switchToAdd()">Switch to Add Product
+      panel</a>
+    <a *ngIf="userRole === 'admin' && addStatus" class="signupBtn" mat-button (click)="switchToAdd()">Switch to Update Product
+      panel</a>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-form-field appearance="fill">
+      <mat-select #mode value="side">
+      </mat-select>
+    </mat-form-field>
+
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <app-categories-list [getProductsByCategoryServer]="getProductsByCategoryServer"></app-categories-list>
+
+    <div class="productsList">
+      <app-product style="display: inline-flex;" *ngFor="let product of products" [product]="product">
+      </app-product>
+    </div>
+
+    <mat-paginator [length]="totalproducts" [pageSize]="productsPerPage" [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangedPage($event)"></mat-paginator>
+
+    <p class=" info-text mat-body-1" *ngIf="products.length <= 0 && !isLoading">No products added yet!</p>
+
+    <button *ngIf="userRole === 'user'" mat-raised-button (click)="drawer.toggle()">Open cart</button>
+    <button *ngIf="userRole === 'admin'" mat-raised-button (click)="drawer.toggle()">Open product maneger</button>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>

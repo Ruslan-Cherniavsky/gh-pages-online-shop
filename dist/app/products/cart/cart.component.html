@@ -1,0 +1,24 @@
+<div>
+  <h1>Cart</h1>
+  <div>
+    <h3>
+      Number of products in cart: {{ cartLength }}
+    </h3>
+    <app-cart-product *ngFor="let cartProduct of currentCart" [cartProduct]="cartProduct" [cartId]="cartId">
+    </app-cart-product>
+
+    <h4>Total price: {{totalPrice | currency: "ILS"}}</h4>
+
+    <button (click)="createOrder()" class="shoppingBtn" mat-raised-button color="accent" *ngIf="cartIsNotEmpty">Order
+    </button>
+    <button (click)="createOrder()" class="shoppingBtn" mat-raised-button disabled *ngIf="!cartIsNotEmpty">Order
+    </button>
+
+    <button (click)="deleteAll(cartId)" class="shoppingBtn" mat-raised-button color="accent"
+      *ngIf="cartIsNotEmpty">Delete all
+    </button>
+
+
+  </div>
+</div>
+

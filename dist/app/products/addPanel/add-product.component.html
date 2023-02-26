@@ -1,0 +1,35 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<h1 *ngIf="updated">Product Addet!</h1>
+
+<div *ngIf="!updated">
+  <form *ngIf="!isLoading" (submit)="onAdd(addForm)" #addForm="ngForm">
+
+    <h1> Add product Panel</h1>
+    <mat-form-field>
+      <input matInput type="text" name="name" [ngModel]="adderI?.name" required #nameInput="ngModel" placeholder="name">
+      <mat-error *ngIf="nameInput.invalid">Plese enter a valid Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" name="price" [ngModel]="adderI?.price" required #priceInput="ngModel"
+        placeholder="price">
+      <mat-error *ngIf="priceInput.invalid">Plese enter price</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="image" [ngModel]="adderI?.image" #imageInput="ngModel" placeholder="image">
+      <mat-error *ngIf="imageInput.invalid">Plese enter image</mat-error>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit">Add new Product</button>
+
+
+
+
+
+  </form>
+
+
+</div>
