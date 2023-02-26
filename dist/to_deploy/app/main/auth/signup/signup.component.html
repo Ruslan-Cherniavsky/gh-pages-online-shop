@@ -1,0 +1,55 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngIf="!signedUp">
+  <form *ngIf="!isLoading" (submit)="onSignup(signupForm)" #signupForm="ngForm">
+
+    <div *ngIf="errorStatus === 409">
+      <h3 class="message">Mail is exixst!</h3>
+    </div>
+
+    <mat-form-field>
+      <input matInput type="text" name="firstName" [ngModel]="signup?.firstName" required #firstNameInput="ngModel"
+        placeholder="First Name">
+      <mat-error *ngIf="firstNameInput.invalid">Plese enter a valid First Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="lastName" [ngModel]="signup?.lastName" required #lastNameInput="ngModel"
+        placeholder="Last Name">
+      <mat-error *ngIf="lastNameInput.invalid">Plese enter a valid LastName</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="email" name="email" [ngModel]="signup?.email" required email #emailInput="ngModel"
+        placeholder="E-Mail">
+      <mat-error *ngIf="emailInput.invalid">Plese enter a valid E-Mail</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="password" [ngModel]="signup?.password" required #passwordInput="ngModel"
+        placeholder="Password">
+      <mat-error *ngIf="passwordInput.invalid">Plese enter a valid Password</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="city" [ngModel]="signup?.city" required #cityInput="ngModel" placeholder="City">
+      <mat-error *ngIf="cityInput.invalid">Plese enter a valid City</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" name="street" [ngModel]="signup?.street" required #streetInput="ngModel"
+        placeholder="Street">
+      <mat-error *ngIf="streetInput.invalid">Plese enter a valid Street</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Sign up</button>
+
+    <a class="signupBtn" mat-button (click)="loginTrue()">Login</a>
+
+  </form>
+</div>
+
+<div *ngIf="!isLoading && signedUp">
+  <h1 style="text-align: center;">welcome now you can login</h1>
+  <a style="width: 100%;" class="signupBtn" mat-button (click)="loginTrue()">Login</a>
+
+</div>

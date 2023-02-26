@@ -1,0 +1,26 @@
+.main {
+  display: flexbox;
+}
+
+
+
+.order-form {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
+
+.order-list {
+  display: inline-flex;
+  margin: 2rem 2rem;
+}
+
+
+.shoppingBtn {
+  width: 100%;
+  margin: 2rem 0rem;
+}
+
+mat-card {
+  width: 47rem;
+  /* height: 40rem; */
+}

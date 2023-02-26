@@ -1,0 +1,9 @@
+.shoppingBtn {
+  width: 100%;
+  margin: 2rem 0rem;
+}
+
+mat-card {
+  width: 25rem;
+  height: 40rem;
+}

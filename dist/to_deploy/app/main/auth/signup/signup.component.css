@@ -1,0 +1,47 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-card {
+  width: 25rem;
+  height: 40rem;
+}
+
+mat-spinner {
+  margin: auto;
+
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.signupBtn {
+  float: right;
+  margin-left: -50%;
+}
+
+.shoppingBtn {
+  width: 100%;
+
+  margin: 2rem 0rem;
+}
+
+.logedIn {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 50%;
+}
+
+.message {
+  text-align: center;
+  color: rgb(66, 135, 195);
+  position: relative;
+}
